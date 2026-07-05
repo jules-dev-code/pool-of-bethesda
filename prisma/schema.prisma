@@ -1,0 +1,231 @@
+// ============================================================
+// Cabinet Dentaire Pool of Bethesa — Schéma de base de données
+// ============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ------------------------------------------------------------
+// Utilisateurs (Administrateurs)
+// ------------------------------------------------------------
+enum Role {
+  ADMIN
+  STAFF
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(ADMIN)
+  avatar    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  logs ActivityLog[]
+
+  @@map("users")
+}
+
+// ------------------------------------------------------------
+// Rendez-vous
+// ------------------------------------------------------------
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}
+
+enum PaymentMethod {
+  ONSITE
+  ORANGE_MONEY
+}
+
+model Appointment {
+  id              String            @id @default(cuid())
+  patientName     String
+  phone           String
+  email           String
+  serviceId       String
+  service         Service           @relation(fields: [serviceId], references: [id])
+  preferredDate   DateTime
+  preferredTime   String
+  status          AppointmentStatus @default(PENDING)
+  paymentMethod   PaymentMethod     @default(ONSITE)
+  paymentReceived Boolean           @default(false)
+  notes           String?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  @@index([preferredDate, preferredTime])
+  @@index([status])
+  @@map("appointments")
+}
+
+// ------------------------------------------------------------
+// Services
+// ------------------------------------------------------------
+model Service {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  titleFr         String
+  titleEn         String
+  descriptionFr   String   @db.Text
+  descriptionEn   String   @db.Text
+  duration        Int // en minutes
+  price           Int? // optionnel, en FCFA
+  image           String?
+  icon            String? // nom de l'icône Lucide
+  order           Int      @default(0)
+  active          Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  appointments Appointment[]
+
+  @@map("services")
+}
+
+// ------------------------------------------------------------
+// Témoignages
+// ------------------------------------------------------------
+model Testimonial {
+  id         String   @id @default(cuid())
+  patient    String
+  photo      String?
+  commentFr  String   @db.Text
+  commentEn  String   @db.Text
+  rating     Int      @default(5)
+  approved   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("testimonials")
+}
+
+// ------------------------------------------------------------
+// FAQ
+// ------------------------------------------------------------
+model Faq {
+  id         String   @id @default(cuid())
+  questionFr String
+  questionEn String
+  answerFr   String   @db.Text
+  answerEn   String   @db.Text
+  category   String   @default("general")
+  order      Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("faqs")
+}
+
+// ------------------------------------------------------------
+// Galerie
+// ------------------------------------------------------------
+enum GalleryCategory {
+  CABINET
+  EQUIPEMENT
+  PERSONNEL
+  PATIENTS
+}
+
+model GalleryImage {
+  id        String          @id @default(cuid())
+  title     String
+  image     String
+  category  GalleryCategory @default(CABINET)
+  order     Int             @default(0)
+  createdAt DateTime        @default(now())
+
+  @@map("gallery_images")
+}
+
+// ------------------------------------------------------------
+// Disponibilités / Horaires
+// ------------------------------------------------------------
+model OpeningHour {
+  id        String  @id @default(cuid())
+  dayOfWeek Int // 0 = Dimanche ... 6 = Samedi
+  openTime  String? // "09:00"
+  closeTime String? // "18:00"
+  isClosed  Boolean @default(false)
+
+  @@unique([dayOfWeek])
+  @@map("opening_hours")
+}
+
+model BlockedSlot {
+  id        String   @id @default(cuid())
+  date      DateTime
+  startTime String?
+  endTime   String?
+  fullDay   Boolean  @default(true)
+  reason    String?
+  createdAt DateTime @default(now())
+
+  @@index([date])
+  @@map("blocked_slots")
+}
+
+// ------------------------------------------------------------
+// Paramètres du cabinet (singleton)
+// ------------------------------------------------------------
+model Settings {
+  id                String   @id @default("settings")
+  clinicName        String   @default("Cabinet Dentaire Pool of Bethesa")
+  sloganFr          String   @default("Votre sourire, notre signature.")
+  sloganEn          String   @default("Your Smile, Our Signature.")
+  address           String   @default("Quartier Non Glacé, lieu-dit ELF, Douala")
+  phone             String   @default("+237659640647")
+  email             String   @default("myriamkengne85@gmail.com")
+  logo              String?
+  favicon           String?
+  googleMapsUrl     String?
+  metaTitle         String?
+  metaDescription   String?
+  ogImage           String?
+  googleAnalyticsId String?
+  orangeMoneyNumber String   @default("659640647")
+  orangeMoneyName   String   @default("MADJOUH OUMBE")
+  orangeMoneyActive Boolean  @default(true)
+  slotDurationMin   Int      @default(30)
+  maxPerDay         Int      @default(20)
+  updatedAt         DateTime @updatedAt
+
+  @@map("settings")
+}
+
+// ------------------------------------------------------------
+// Journal d'activité
+// ------------------------------------------------------------
+enum LogAction {
+  LOGIN
+  CREATE
+  UPDATE
+  DELETE
+  EXPORT
+}
+
+model ActivityLog {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+  action    LogAction
+  entity    String // ex: "Appointment", "Service"
+  entityId  String?
+  details   String?
+  createdAt DateTime  @default(now())
+
+  @@index([userId])
+  @@index([createdAt])
+  @@map("activity_logs")
+}

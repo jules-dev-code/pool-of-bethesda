@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "title": "Pool of Bethesda Dental Clinic — Douala",
+    "description": "Modern, precise and personalized dental care in a welcoming, safe environment equipped with the latest technology."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "book": "Book an appointment"
+  },
+  "hero": {
+    "title": "Your smile deserves the best care.",
+    "subtitle": "Modern, precise and personalized dental care in a welcoming, safe environment equipped with the latest technology.",
+    "ctaPrimary": "Book an appointment",
+    "ctaSecondary": "Discover our services",
+    "badges": ["Consultation", "Scaling", "Extraction", "Restorative care", "Dental prosthetics"],
+    "floatingCards": {
+      "trust": "More trust",
+      "care": "Personalized care",
+      "equipment": "Modern equipment"
+    }
+  },
+  "values": {
+    "title": "Our values",
+    "items": [
+      { "title": "Professionalism", "description": "A team trained in the best international dental practices." },
+      { "title": "Hygiene", "description": "Strict sterilization protocols for your complete safety." },
+      { "title": "Listening", "description": "Every patient is heard, understood and supported." },
+      { "title": "Innovation", "description": "Modern equipment for precise and comfortable care." },
+      { "title": "Trust", "description": "A transparent and honest relationship with every patient." },
+      { "title": "Excellence", "description": "A high standard at every stage of care." }
+    ]
+  },
+  "about": {
+    "title": "Meet Dr. Myriam Kengne",
+    "description": "A passionate, attentive professional committed to providing quality care in a modern environment.",
+    "quote": "Every smile is unique. Our mission is to restore its confidence and brightness."
+  },
+  "services": {
+    "title": "Our services",
+    "cta": "Book an appointment",
+    "bookThis": "Book this service"
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "steps": [
+      { "title": "Choose your care", "description": "Browse our services and select the one that suits you." },
+      { "title": "Book your slot", "description": "Choose the date and time that works for you." },
+      { "title": "Get your confirmation", "description": "A confirmation email is sent to you instantly." },
+      { "title": "Come to the clinic", "description": "We welcome you at the agreed time." }
+    ]
+  },
+  "stats": {
+    "title": "Why choose us?",
+    "patients": "Satisfied patients",
+    "appointments": "Appointments completed",
+    "services": "Services offered",
+    "days": "Days open per week"
+  },
+  "testimonials": {
+    "title": "Testimonials"
+  },
+  "gallery": {
+    "title": "Our clinic"
+  },
+  "faq": {
+    "title": "Frequently asked questions"
+  },
+  "cta": {
+    "title": "Your smile starts today.",
+    "button": "Book an appointment"
+  },
+  "footer": {
+    "quickLinks": "Quick links",
+    "hours": "Opening hours",
+    "rights": "All rights reserved."
+  },
+  "booking": {
+    "steps": {
+      "service": "Service",
+      "date": "Date",
+      "time": "Time",
+      "info": "Your information",
+      "comments": "Comments",
+      "payment": "Payment",
+      "summary": "Summary",
+      "confirmation": "Confirmation"
+    },
+    "form": {
+      "name": "Full name",
+      "phone": "Phone",
+      "email": "Email",
+      "comments": "Comments (optional)"
+    },
+    "payment": {
+      "title": "Choose your payment method",
+      "onsite": "Pay on site",
+      "orangeMoney": "Orange Money",
+      "number": "Number",
+      "name": "Name"
+    },
+    "success": {
+      "title": "Appointment confirmed!",
+      "description": "A confirmation email has been sent to you."
+    }
+  },
+  "contact": {
+    "title": "Contact us",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Opening hours"
+  },
+  "notFound": {
+    "title": "This page does not exist.",
+    "cta": "Back to home"
+  }
+}

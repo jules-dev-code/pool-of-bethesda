@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "title": "Cabinet Dentaire Pool of Bethesa — Douala",
+    "description": "Des soins dentaires modernes, précis et personnalisés dans un environnement accueillant, sécurisé et équipé des dernières technologies."
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "book": "Prendre rendez-vous"
+  },
+  "hero": {
+    "title": "Votre sourire mérite les meilleurs soins.",
+    "subtitle": "Des soins dentaires modernes, précis et personnalisés dans un environnement accueillant, sécurisé et équipé des dernières technologies.",
+    "ctaPrimary": "Prendre rendez-vous",
+    "ctaSecondary": "Découvrir nos services",
+    "badges": ["Consultation", "Détartrage", "Extraction", "Soins conservateurs", "Prothèses dentaires"],
+    "floatingCards": {
+      "trust": "Plus de confiance",
+      "care": "Soins personnalisés",
+      "equipment": "Équipement moderne"
+    }
+  },
+  "values": {
+    "title": "Nos valeurs",
+    "items": [
+      { "title": "Professionnalisme", "description": "Une équipe formée aux meilleures pratiques dentaires internationales." },
+      { "title": "Hygiène", "description": "Des protocoles de stérilisation stricts pour votre sécurité totale." },
+      { "title": "Écoute", "description": "Chaque patient est entendu, compris et accompagné." },
+      { "title": "Innovation", "description": "Des équipements modernes pour des soins précis et confortables." },
+      { "title": "Confiance", "description": "Une relation transparente et honnête avec chaque patient." },
+      { "title": "Excellence", "description": "Un niveau d'exigence élevé à chaque étape du soin." }
+    ]
+  },
+  "about": {
+    "title": "Rencontrez le Dr Myriam Kengne",
+    "description": "Professionnelle passionnée, attentive et engagée à offrir des soins de qualité dans un environnement moderne.",
+    "quote": "Chaque sourire est unique. Notre mission est de lui redonner confiance et éclat."
+  },
+  "services": {
+    "title": "Nos services",
+    "cta": "Prendre rendez-vous",
+    "bookThis": "Réserver ce service"
+  },
+  "howItWorks": {
+    "title": "Comment ça fonctionne",
+    "steps": [
+      { "title": "Choisissez votre soin", "description": "Parcourez nos services et sélectionnez celui qui vous convient." },
+      { "title": "Réservez votre créneau", "description": "Choisissez la date et l'heure qui vous arrangent." },
+      { "title": "Recevez votre confirmation", "description": "Un email de confirmation vous est envoyé instantanément." },
+      { "title": "Venez au cabinet", "description": "Nous vous accueillons à l'heure convenue." }
+    ]
+  },
+  "stats": {
+    "title": "Pourquoi nous choisir ?",
+    "patients": "Patients satisfaits",
+    "appointments": "Rendez-vous réalisés",
+    "services": "Services proposés",
+    "days": "Jours d'ouverture par semaine"
+  },
+  "testimonials": {
+    "title": "Témoignages"
+  },
+  "gallery": {
+    "title": "Notre cabinet"
+  },
+  "faq": {
+    "title": "Questions fréquentes"
+  },
+  "cta": {
+    "title": "Votre sourire commence aujourd'hui.",
+    "button": "Prendre rendez-vous"
+  },
+  "footer": {
+    "quickLinks": "Liens rapides",
+    "hours": "Horaires",
+    "rights": "Tous droits réservés."
+  },
+  "booking": {
+    "steps": {
+      "service": "Service",
+      "date": "Date",
+      "time": "Heure",
+      "info": "Vos informations",
+      "comments": "Commentaires",
+      "payment": "Paiement",
+      "summary": "Résumé",
+      "confirmation": "Confirmation"
+    },
+    "form": {
+      "name": "Nom complet",
+      "phone": "Téléphone",
+      "email": "Email",
+      "comments": "Commentaires (optionnel)"
+    },
+    "payment": {
+      "title": "Choisissez votre mode de paiement",
+      "onsite": "Paiement sur place",
+      "orangeMoney": "Orange Money",
+      "number": "Numéro",
+      "name": "Nom"
+    },
+    "success": {
+      "title": "Rendez-vous confirmé !",
+      "description": "Un email de confirmation vous a été envoyé."
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "address": "Adresse",
+    "phone": "Téléphone",
+    "email": "Email",
+    "hours": "Horaires d'ouverture"
+  },
+  "notFound": {
+    "title": "Cette page n'existe pas.",
+    "cta": "Retour à l'accueil"
+  }
+}

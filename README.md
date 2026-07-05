@@ -1,0 +1,153 @@
+# Cabinet Dentaire Pool of Bethesa
+
+Site web bilingue (FR/EN) et dashboard administrateur pour le **Cabinet Dentaire Pool of Bethesa** (Douala, Cameroun) — Dr Myriam Kengne.
+
+Application de production complète : site vitrine premium, système de réservation en ligne avec anti-double-réservation, et back-office complet pour la gestion quotidienne du cabinet.
+
+---
+
+## ✨ Fonctionnalités
+
+**Site public (FR/EN)**
+- Page d'accueil animée (Hero, valeurs, services, témoignages, galerie, FAQ)
+- Pages Services avec fiches détaillées par soin
+- Système de réservation en ligne (wizard 6 étapes, calcul de créneaux en temps réel, paiement Orange Money ou sur place)
+- Formulaire de contact avec envoi d'email réel
+- Mode sombre, SEO complet (JSON-LD, sitemap, Open Graph), PWA installable
+
+**Dashboard administrateur**
+- Authentification sécurisée (session JWT)
+- Gestion des rendez-vous (recherche, filtres, statuts, export CSV)
+- Gestion des disponibilités (horaires, congés)
+- CRUD complet : services, galerie (Cloudinary), témoignages, FAQ
+- Paramètres du cabinet, SEO, Orange Money
+- Analytics (graphiques Recharts) et journal d'activité
+
+---
+
+## 🧱 Stack technique
+
+Next.js 15 (App Router) · React 19 · TypeScript · TailwindCSS · Prisma · PostgreSQL (Supabase) · Resend · Cloudinary · next-intl · Framer Motion · Radix UI · Zod · React Hook Form
+
+📖 Voir [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) pour le détail de l'architecture.
+
+---
+
+## 🚀 Démarrage rapide (développement local)
+
+\`\`\`bash
+# 1. Installer les dépendances
+npm install
+
+# 2. Copier le fichier d'environnement
+cp .env.example .env
+# → renseignez DATABASE_URL, Supabase, Resend, Cloudinary (voir docs/DEPLOYMENT.md)
+
+# 3. Générer le client Prisma et créer les tables
+npx prisma generate
+npx prisma db push
+
+# 4. Peupler la base (services, horaires, compte admin par défaut)
+npx prisma db seed
+
+# 5. Lancer le serveur de développement
+npm run dev
+\`\`\`
+
+Le site est accessible sur :
+- **Français** : http://localhost:3000
+- **English** : http://localhost:3000/en
+- **Dashboard** : http://localhost:3000/dashboard *(identifiants ci-dessous)*
+
+⚠️ **Identifiants admin par défaut** (créés par le seed) :
+`myriamkengne85@gmail.com` / `ChangeMe123!` — **à changer immédiatement** depuis *Mon profil*.
+
+---
+
+## 🧪 Tests
+
+\`\`\`bash
+npm run test          # Tests unitaires (Vitest)
+npm run test:watch    # Mode watch
+npm run test:e2e      # Tests E2E (Playwright) — nécessite le build + seed
+npm run test:e2e:ui   # Interface Playwright
+\`\`\`
+
+Couverture actuelle :
+- **Unitaires** : validation Zod, calcul des créneaux disponibles, rate limiter
+- **E2E** : navigation bilingue, parcours de réservation complet, authentification admin
+
+---
+
+## 📦 Scripts disponibles
+
+| Commande | Description |
+|---|---|
+| `npm run dev` | Serveur de développement |
+| `npm run build` | Build de production |
+| `npm run start` | Lance le build de production |
+| `npm run lint` | Analyse ESLint |
+| `npm run format` | Formatage Prettier |
+| `npm run test` | Tests unitaires |
+| `npm run test:e2e` | Tests end-to-end |
+| `npx prisma studio` | Interface graphique de la base de données |
+| `npx prisma db seed` | Peuple la base avec les données par défaut |
+
+---
+
+## 🌍 Déploiement
+
+Guide complet pas-à-pas : [`docs/DEPLOYMENT.md`](./docs/DEPLOYMENT.md)
+
+R�sumé express (Vercel) :
+1. Poussez le projet sur GitHub
+2. Importez-le sur vercel.com/new
+3. Renseignez les variables d'environnement (`.env.example`)
+4. Déployez, puis exécutez `npx prisma db push && npx prisma db seed` une fois
+
+---
+
+## 📁 Structure du projet
+
+\`\`\`
+app/            Routes Next.js (site public (fr)/en, dashboard, api)
+components/     Composants React (ui, sections, dashboard, booking, forms...)
+lib/            Logique métier (actions, services, validations, types, auth)
+prisma/         Schéma de base de données + script de seed
+messages/       Traductions FR/EN (next-intl)
+emails/         Templates d'emails (React Email)
+tests/unit/     Tests unitaires (Vitest)
+e2e/            Tests end-to-end (Playwright)
+docs/           Documentation complémentaire (architecture, déploiement)
+\`\`\`
+
+Détail complet dans [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md).
+
+---
+
+## ⚠️ Notes importantes avant mise en production
+
+- [ ] Remplacer les **photos placeholder** (Dr Kengne, cabinet) par les vraies images
+- [ ] Ajouter les **icônes PWA** dans `/public/icons/` (192px, 512px, maskable)
+- [ ] Ajouter l'image **Open Graph** `/public/images/og-cover.jpg` (1200×630)
+- [ ] Changer le **mot de passe admin** par défaut
+- [ ] Vérifier le domaine d'envoi **Resend** pour la production
+- [ ] Pour un trafic important, migrer le rate limiting vers **Upstash Redis**
+
+---
+
+## ✅ Statut du projet — Toutes les phases livrées
+
+- [x] Phase 1 — Initialisation du projet et architecture
+- [x] Phase 2 — Design System et composants UI
+- [x] Phase 3 — Pages publiques
+- [x] Phase 4 — Système de réservation
+- [x] Phase 5 — Dashboard administrateur
+- [x] Phase 6 — SEO, sécurité et optimisations
+- [x] Phase 7 — Tests, documentation et déploiement
+
+---
+
+## 📄 Licence
+
+Projet propriétaire — Cabinet Dentaire Pool of Bethesa. Tous droits réservés.
