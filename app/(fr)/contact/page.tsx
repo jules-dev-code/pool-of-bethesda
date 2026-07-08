@@ -49,9 +49,14 @@ export default function ContactPage() {
                     <p className="font-heading text-sm font-semibold text-primary-950 dark:text-white">
                       Adresse
                     </p>
-                    <p className="text-sm text-muted-foreground">
+                    
+                      href={CLINIC.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-muted-foreground underline-offset-2 hover:text-primary hover:underline"
+                    >
                       {CLINIC.address}
-                    </p>
+                    </a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -60,7 +65,12 @@ export default function ContactPage() {
                     <p className="font-heading text-sm font-semibold text-primary-950 dark:text-white">
                       Téléphone
                     </p>
-                    <p className="text-sm text-muted-foreground">{CLINIC.phone}</p>
+                    
+                      href={`tel:${CLINIC.phoneRaw}`}
+                      className="text-sm text-muted-foreground underline-offset-2 hover:text-primary hover:underline"
+                    >
+                      {CLINIC.phone}
+                    </a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -69,7 +79,12 @@ export default function ContactPage() {
                     <p className="font-heading text-sm font-semibold text-primary-950 dark:text-white">
                       Email
                     </p>
-                    <p className="text-sm text-muted-foreground">{CLINIC.email}</p>
+                    
+                      href={`mailto:${CLINIC.email}`}
+                      className="text-sm text-muted-foreground underline-offset-2 hover:text-primary hover:underline"
+                    >
+                      {CLINIC.email}
+                    </a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -89,11 +104,18 @@ export default function ContactPage() {
             </div>
 
             {/* Google Maps — clé API à ajouter en Phase 6 */}
-            <div className="flex aspect-video items-center justify-center rounded-2xl border border-border bg-secondary/40 shadow-premium">
-              <p className="text-sm text-muted-foreground">
-                Carte Google Maps — Quartier Non Glacé, ELF, Douala
-              </p>
-            </div>
+            href={CLINIC.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex aspect-video items-center justify-center rounded-2xl border border-border bg-secondary/40 shadow-premium transition-colors hover:bg-secondary/60"
+            >
+              <div className="flex flex-col items-center gap-2 text-center">
+                <MapPin className="h-8 w-8 text-primary" />
+                <p className="text-sm font-medium text-primary">
+                  Voir l'itinéraire sur Google Maps
+                </p>
+              </div>
+            </a>
           </Reveal>
         </div>
       </div>

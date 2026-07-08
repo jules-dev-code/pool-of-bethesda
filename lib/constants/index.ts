@@ -3,6 +3,7 @@ export const CLINIC = {
   sloganFr: "Votre sourire, notre signature.",
   sloganEn: "Your Smile, Our Signature.",
   address: "Quartier Non Glacé, lieu-dit ELF, Douala, Cameroun",
+  mapsUrl: "https://maps.app.goo.gl/tuyMZL11MFFqopPZ7",
   phone: "+237 659 640 647",
   phoneRaw: "+237659640647",
   email: "myriamkengne85@gmail.com",
